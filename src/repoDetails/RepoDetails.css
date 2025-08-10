@@ -1,0 +1,40 @@
+.repo-details-container {
+  width: 500px;
+  margin: 30px auto;
+  font-family: Arial, sans-serif;
+}
+
+.back-btn {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.back-btn:hover {
+  background-color: #e0e0e0;
+}
+
+h2 {
+  margin-top: 20px;
+}
+
+.detail-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.detail-row label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.detail-row input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #f9f9f9;
+}
