@@ -16,7 +16,7 @@ const Login = () => {
 
   const handleOAuthLogin = (provider) => {
     // This will redirect to your backend provide OAuth route
-    window.location.href = `${renderBackendApiUrl}/${provider}/login`;
+    window.location.href = `${renderBackendApiUrl}/provider/${provider}/login`;
   };
 
   // After OAuth redirect back to frontend, check if user is authenticated
