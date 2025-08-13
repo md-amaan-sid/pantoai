@@ -18,7 +18,7 @@ export default function RepoDetails() {
   useEffect(() => {
     async function fetchUser() {
       try {
-        const res = await axios.get("http://localhost:4000/provider/me", {
+        const res = await axios.get(`${renderBackendApiUrl}/provider/me`, {
           withCredentials: true,
         });
         setUser(res.data);
@@ -34,7 +34,7 @@ export default function RepoDetails() {
       try {
         const [owner, repoName] = repo.name.split("/");
         const res = await axios.get(
-          `http://localhost:4000/provider/repo-lines/${owner}/${repoName}`,
+          `${renderBackendApiUrl}/provider/repo-lines/${owner}/${repoName}`,
           { withCredentials: true }
         );
         setLines(res.data.totalLines);

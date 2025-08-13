@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./login.css";
-import api from "../utils/api"; // helper for backend calls
+import { api, renderBackendApiUrl } from "../utils/api"; // helper for backend calls
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -16,7 +16,7 @@ const Login = () => {
 
   const handleOAuthLogin = (provider) => {
     // This will redirect to your backend provide OAuth route
-    window.location.href = `http://localhost:4000/provider/${provider}/login`;
+    window.location.href = `${renderBackendApiUrl}/provider/${provider}/login`;
   };
 
   // After OAuth redirect back to frontend, check if user is authenticated

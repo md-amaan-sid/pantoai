@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 import "./repo.css";
-import api from "../utils/api";
+import { api } from "../utils/api";
 
 export default function Repos() {
   const [repos, setRepos] = useState([]);
