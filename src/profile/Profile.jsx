@@ -2,6 +2,7 @@ import "./Profile.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { renderBackendApiUrl } from "../utils/api"; // helper for backend calls
 
 export default function Profile() {
   const [userData, setUserData] = useState(null);
@@ -12,7 +13,7 @@ export default function Profile() {
     async function fetchUserData() {
       try {
         const response = await axios.get(
-          "http://localhost:4000/provider/profile",
+          `${renderBackendApiUrl}/provider/profile`,
           {
             withCredentials: true,
           }
@@ -29,7 +30,7 @@ export default function Profile() {
   const handleLogout = async () => {
     try {
       await axios.post(
-        "http://localhost:4000/provider/logout",
+        `${renderBackendApiUrl}/provider/logout`,
         {},
         { withCredentials: true }
       );

@@ -5,4 +5,6 @@ const api = axios.create({
   withCredentials: true,
 });
 
-export default api;
+const renderBackendApiUrl = "https://gitmanagement-backend.onrender.com";
+
+export default { api, renderBackendApiUrl };
