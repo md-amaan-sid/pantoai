@@ -12,7 +12,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/repos" element={<Repos />} />
-        <Route path="/repos/:repoName" element={<RepoDetails />} />
+        <Route path="/repos/details" element={<RepoDetails />} />
       </Routes>
     </Router>
   );
