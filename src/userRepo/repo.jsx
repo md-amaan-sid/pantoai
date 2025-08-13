@@ -13,6 +13,7 @@ export default function Repos() {
 
   useEffect(() => {
     // If we have user data from redirect, save it
+    console.log("Search params:", searchParams);
     const userParam = searchParams.get("user");
     if (userParam) {
       const userData = JSON.parse(decodeURIComponent(userParam));
@@ -41,7 +42,7 @@ export default function Repos() {
       setRepos(JSON.parse(toggles));
     } else {
       api
-        .get("/github/repos")
+        .get("/provider/repos")
         .then((res) => {
           console.log("Fetched repos:", res);
           // Add autoReview property if not present
@@ -87,7 +88,7 @@ export default function Repos() {
                 objectFit: "cover",
                 cursor: "pointer",
               }}
-              onClick={() => navigate("/profile")} 
+              onClick={() => navigate("/profile")}
             />
           )}
         </div>
@@ -100,7 +101,7 @@ export default function Repos() {
           <div className="repo-item" key={index}>
             <span
               className="repo-name"
-              onClick={() => openRepo(repo)} 
+              onClick={() => openRepo(repo)}
               style={{ cursor: "pointer" }}
             >
               {repo.name}

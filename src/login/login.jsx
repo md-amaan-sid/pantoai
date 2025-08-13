@@ -15,12 +15,8 @@ const Login = () => {
   };
 
   const handleOAuthLogin = (provider) => {
-    if (provider === "GitHub") {
-      // This will redirect to your backend GitHub OAuth route
-      window.location.href = "http://localhost:4000/auth/github";
-    } else {
-      alert(`Login with ${provider}`);
-    }
+    // This will redirect to your backend provide OAuth route
+    window.location.href = `http://localhost:4000/provider/${provider}/login`;
   };
 
   // After OAuth redirect back to frontend, check if user is authenticated
@@ -37,13 +33,13 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <h3>Welcome To </h3>
+      <h3>Welcome!</h3>
       <h2>Git Management System</h2>
-      
-      <button onClick={() => handleOAuthLogin("GitHub")}>
+
+      <button onClick={() => handleOAuthLogin("github")}>
         Login with GitHub
       </button>
-      <button onClick={() => handleOAuthLogin("GitLab")}>
+      <button onClick={() => handleOAuthLogin("gitlab")}>
         Login with GitLab
       </button>
       {/* <button onClick={() => handleOAuthLogin("Bitbucket")}>

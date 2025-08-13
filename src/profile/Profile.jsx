@@ -11,9 +11,12 @@ export default function Profile() {
   useEffect(() => {
     async function fetchUserData() {
       try {
-        const response = await axios.get("http://localhost:4000/auth/me", {
-          withCredentials: true,
-        });
+        const response = await axios.get(
+          "http://localhost:4000/provider/profile",
+          {
+            withCredentials: true,
+          }
+        );
         setUserData(response.data);
       } catch (err) {
         console.error("Failed to fetch user data:", err);
@@ -26,7 +29,7 @@ export default function Profile() {
   const handleLogout = async () => {
     try {
       await axios.post(
-        "http://localhost:4000/auth/logout",
+        "http://localhost:4000/provider/logout",
         {},
         { withCredentials: true }
       );
@@ -61,7 +64,7 @@ export default function Profile() {
         </button>
         <h2>Account</h2>
         {userData.avatar ? (
-          <img src={userData.avatar} alt="Avatar" width={50} />
+          <img src={userData.avatar_url} alt="Avatar" width={50} />
         ) : (
           <div className="profile-initials">{initials}</div>
         )}
@@ -75,7 +78,7 @@ export default function Profile() {
         <input type="text" value={userData.username || ""} readOnly />
 
         <label>Total number of repositories</label>
-        <input type="text" value={userData.publicRepos ?? ""} readOnly />
+        <input type="text" value={userData.public_repos ?? ""} readOnly />
 
         <label>No of auto review enabled repositories</label>
         <input
